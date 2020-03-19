@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html lang="en">
+    
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+</head>
+
+<body>
+  <div id="demo">
+    <h2>Click for the date of Barcelona's next game</h2>
+    <button type="button" onclick="loadDoc()">Get date</button>
+  </div>
+
+  <script>
+  function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("demo").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "GameData.txt", true);
+    xhttp.send(); 
+    }
+    </script>
+</body>
+
+</html>
